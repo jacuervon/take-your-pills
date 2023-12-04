@@ -2,11 +2,38 @@ import os
 import platform
 import json
 
+
 def get_user_folder() -> str:
-    return os.path.expanduser('~');
+    """
+    Get the path to the user's home folder.
+
+    Returns:
+        str: The path to the user's home folder.
+    """
+    return os.path.expanduser('~')
+
+
+def get_user_folder() -> str:
+    return os.path.expanduser('~')
+
 
 def set_path(path: str, file_name: str) -> None:
-    return os.join(path, file_name);
+    """
+    Sets the path for the file.
+
+    Args:
+        path (str): The path to the file.
+        file_name (str): The name of the file.
+
+    Returns:
+        None
+    """
+    return os.join(path, file_name)
+
+
+def set_path(path: str, file_name: str) -> None:
+    return os.join(path, file_name)
+
 
 def retrieve_data(file_path: str) -> dict:
     """
@@ -69,11 +96,12 @@ def store_data(file_path: str, data: dict, force=False) -> None:
                 json.dump(data, file_json, indent=4)
 
                 if platform.system() == "Windows":
-                    msvcrt.locking(file_json.fileno(), msvcrt.LK_UNLCK , 0)
+                    msvcrt.locking(file_json.fileno(), msvcrt.LK_UNLCK, 0)
                 else:
                     fcntl.flock(file_json, fcntl.LOCK_UN)
         except Exception as e:
             print("Error: ", e)
+
 
 if __name__ == "__main__":
     exit(1)
