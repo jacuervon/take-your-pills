@@ -2,6 +2,12 @@ import os
 import platform
 import json
 
+def get_user_folder() -> str:
+    return os.path.expanduser('~');
+
+def set_path(path: str, file_name: str) -> None:
+    return os.join(path, file_name);
+
 def retrieve_data(file_path: str) -> dict:
     """
     Retrieve data from a JSON file.
