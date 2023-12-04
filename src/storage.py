@@ -70,5 +70,4 @@ def store_data(file_path: str, data: dict, force=False) -> None:
             print("Error: ", e)
 
 if __name__ == "__main__":
-    print("This is a module, not a script.")
     exit(1)
